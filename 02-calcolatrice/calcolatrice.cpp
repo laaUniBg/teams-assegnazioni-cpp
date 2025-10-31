@@ -1,10 +1,9 @@
 #include <iostream>
+#include <string>
 
-const int N_INPUTS = 3;
-// 3 array di stringhe di 2 caratteri però c++ vuole [3] perchè oltre ai 2 caratteri esiste anche
-// un carattere nullo '\0'
-const char intKeys[N_INPUTS][N_INPUTS] = {"n1", "n2", "n3"};
-const char validCommands[5][2]         = {"A", "B", "C", "D", "X"};
+const int         N_INPUTS          = 3;
+const std::string intKeys[N_INPUTS] = {"n1", "n2", "n3"};
+const std::string validCommands[5]  = {"A", "B", "C", "D", "X"};
 
 namespace laa {
   void printMenu() {
@@ -15,7 +14,7 @@ namespace laa {
     std::cout << "D: divisione:\tn1/n2\n";
     std::cout << "X: uscita programma";
   };
-  
+
   int addizione(int n1, int n2, int n3) {
     return n1 + n2 + n3;
   };
@@ -32,10 +31,9 @@ namespace laa {
     return n1 / n2;
   };
 
-
-  bool isGoodCommand(char thisString[2]) {
+  bool isGoodCommand(std::string thisString) {
     for (int i = 0; i < 5; i++) {
-      const char thisValidCommand[2] = validCommands[i];
+      const std::string thisValidCommand = validCommands[i];
       if (thisValidCommand == thisString) { return true; }
     };
     return false;
@@ -44,9 +42,9 @@ namespace laa {
 
 int main() {
   do {
-    int  intValues[N_INPUTS];
-    char choosedCommand[2];
-    double valueToDisplay;
+    int         intValues[N_INPUTS];
+    std::string choosedCommand;
+    double      valueToDisplay;
 
     for (int i = 0; i < N_INPUTS; i++) {
       do {
@@ -65,7 +63,9 @@ int main() {
       return 0;
     }
 
-    if (choosedCommand == "A") { valueToDisplay = laa::addizione(intValues[0], intValues[1], intValues[2]); }
+    if (choosedCommand == "A") {
+      valueToDisplay = laa::addizione(intValues[0], intValues[1], intValues[2]);
+    }
     if (choosedCommand == "B") { valueToDisplay = laa::prodotto(intValues[1], intValues[2]); }
     if (choosedCommand == "C") { valueToDisplay = laa::sottrazione(intValues[3], intValues[1]); }
     if (choosedCommand == "D") { valueToDisplay = laa::divisione(intValues[1], intValues[2]); }
