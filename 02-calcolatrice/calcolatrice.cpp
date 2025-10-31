@@ -46,6 +46,7 @@ int main() {
   do {
     int  intValues[N_INPUTS];
     char choosedCommand[2];
+    double valueToDisplay;
 
     for (int i = 0; i < N_INPUTS; i++) {
       do {
@@ -64,9 +65,11 @@ int main() {
       return 0;
     }
 
-    if (choosedCommand == "A") { laa::addizione(intValues[0], intValues[1], intValues[2]); }
-    if (choosedCommand == "B") { laa::prodotto(intValues[1], intValues[2]); }
-    if (choosedCommand == "C") { laa::sottrazione(intValues[3], intValues[1]); }
-    if (choosedCommand == "D") { laa::divisione(intValues[1], intValues[2]); }
+    if (choosedCommand == "A") { valueToDisplay = laa::addizione(intValues[0], intValues[1], intValues[2]); }
+    if (choosedCommand == "B") { valueToDisplay = laa::prodotto(intValues[1], intValues[2]); }
+    if (choosedCommand == "C") { valueToDisplay = laa::sottrazione(intValues[3], intValues[1]); }
+    if (choosedCommand == "D") { valueToDisplay = laa::divisione(intValues[1], intValues[2]); }
+
+    std::cout << "il valore calcolato è: " << valueToDisplay << std::endl;
   } while (true);
 };
