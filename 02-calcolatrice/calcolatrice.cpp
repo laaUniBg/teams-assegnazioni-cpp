@@ -11,7 +11,7 @@ namespace laa {
     std::cout << "➜ A: addizione:\t\tn1+n2+n3\n";
     std::cout << "➜ B: multiplicazione:\tn1*n2\n";
     std::cout << "➜ C: sottrazione:\tn3-n1\n";
-    std::cout << "➜ D: divisione:\t\t1/n2\n";
+    std::cout << "➜ D: divisione:\t\tn1/n2\n";
     std::cout << "➜ X: uscita programma\n";
   };
 
@@ -61,7 +61,7 @@ int main() {
     } while (!(laa::isGoodCommand(choosedCommand)));
 
     if (choosedCommand == "X") {
-      std::cout << "grazie per aver utilizzato l'app. arrivederci!";
+      std::cout << "grazie per aver utilizzato l'app. arrivederci!\n\n";
       return 0;
     };
 
@@ -74,6 +74,6 @@ int main() {
 
     std::cout << "il valore calcolato è: " << valueToDisplay << std::endl << std::endl;
 
-    std::cout << "----------------------------" << std::endl;
+    std::cout << "----------------------------" << std::endl << std::endl;
   } while (true);
 };
