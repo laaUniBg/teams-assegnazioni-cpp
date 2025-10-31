@@ -15,22 +15,6 @@ namespace laa {
     std::cout << "➜ X: uscita programma\n";
   };
 
-  int addizione(int n1, int n2, int n3) {
-    return n1 + n2 + n3;
-  };
-
-  int prodotto(int n1, int n2) {
-    return n1 * n2;
-  };
-
-  int sottrazione(int n1, int n2) {
-    return n1 - n2;
-  };
-
-  double divisione(double n1, double n2) {
-    return n1 / n2;
-  };
-
   bool isGoodCommand(std::string thisString) {
     for (int i = 0; i < 5; i++) {
       const std::string thisValidCommand = validCommands[i];
@@ -65,14 +49,10 @@ int main() {
       return 0;
     };
 
-    if (choosedCommand == "A") {
-      valueToDisplay = laa::addizione(intValues[0], intValues[1], intValues[2]);
-    }
-    if (choosedCommand == "B") { valueToDisplay = laa::prodotto(intValues[1], intValues[2]); }
-    if (choosedCommand == "C") { valueToDisplay = laa::sottrazione(intValues[3], intValues[1]); }
-    if (choosedCommand == "D") {
-      valueToDisplay = laa::divisione((double) intValues[1], (double) intValues[2]);
-    }
+    if (choosedCommand == "A") { valueToDisplay = intValues[0] + intValues[1] + intValues[2]; }
+    if (choosedCommand == "B") { valueToDisplay = intValues[1] * intValues[2]; }
+    if (choosedCommand == "C") { valueToDisplay = intValues[3] - intValues[1]; }
+    if (choosedCommand == "D") { valueToDisplay = (double) intValues[1] / (double) intValues[2]; }
 
     std::cout << "il valore calcolato è: " << valueToDisplay << std::endl << std::endl;
 
