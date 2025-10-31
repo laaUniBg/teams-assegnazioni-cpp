@@ -9,7 +9,7 @@ const char validCommands[5][2] = {"A", "B", "C", "D", "X"};
 namespace laa {
   int addizione(int n1, int n2, int n3) {
     return n1 + n2 + n3;
-  }
+  };
   
   int prodotto(int n1, int n2) {
     return n1 * n2;
@@ -30,19 +30,22 @@ namespace laa {
     std::cout << "C: sottrazione:\tn3-n1\n";
     std::cout << "D: divisione:\tn1/n2\n";
     std::cout << "X: uscita programma";
+  };
+
+  bool isGoodCommand(char thisString[2]) {
+    for(int i=0; i<5; i++) {
+      const char thisValidCommand[2] = validCommands[i];
+      if(thisValidCommand == thisString) return true;
+    };
+    return false;
   }
 }
 
-bool isGoodCommand(char thisString[2]) {
-  for(int i=0; i<5; i++) {
-    
-  }
-}
 
 
 int main() {
   int        intValues[N_INPUTS];
-  char choosedCommand;
+  char choosedCommand[2];
 
   for (int i = 0; i < N_INPUTS; i++) {
     do {
@@ -53,7 +56,8 @@ int main() {
 
   do {
     laa::printMenu();
-  } while()
+    std::cin>>choosedCommand;
+  } while(!(laa::isGoodCommand(choosedCommand)));
 
   return 0;
 };
