@@ -18,8 +18,13 @@ int main() {
 
   std::cout << "Celsius:\t";
   for (int thisCelsius = tIniziale; thisCelsius < tFinale; thisCelsius += stepSize) {
-    std::cout << thisCelsius;
-  }
+    std::cout << thisCelsius << "\t";
+  };
+
+  std::cout << "\nFahrenheit:\t";
+  for (int thisCelsius = tIniziale; thisCelsius < tFinale; thisCelsius += stepSize) {
+    std::cout << (thisCelsius*(9.0/5.0))+32 << "\t";
+  };
 
   return 0;
 }
