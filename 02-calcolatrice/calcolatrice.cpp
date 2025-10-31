@@ -68,8 +68,10 @@ int main() {
     }
     if (choosedCommand == "B") { valueToDisplay = laa::prodotto(intValues[1], intValues[2]); }
     if (choosedCommand == "C") { valueToDisplay = laa::sottrazione(intValues[3], intValues[1]); }
-    if (choosedCommand == "D") { valueToDisplay = laa::divisione(intValues[1], intValues[2]); }
+    if (choosedCommand == "D") { valueToDisplay = laa::divisione((double)intValues[1], (double)intValues[2]); }
 
-    std::cout << "il valore calcolato è: " << valueToDisplay << std::endl;
+    std::cout << "il valore calcolato è: " << valueToDisplay << std::endl << std::endl;
+
+    std::cout << "----------------------------" << std::endl;
   } while (true);
 };
