@@ -8,11 +8,11 @@ const std::string validCommands[5]  = {"A", "B", "C", "D", "X"};
 namespace laa {
   void printMenu() {
     std::cout << "istruzioni che puoi usare:\n";
-    std::cout << "A: addizione:\tn1+n2+n3\n";
-    std::cout << "B: multiplic.:\tn1*n2\n";
-    std::cout << "C: sottrazione:\tn3-n1\n";
-    std::cout << "D: divisione:\tn1/n2\n";
-    std::cout << "X: uscita programma";
+    std::cout << "➜ A: addizione:\t\tn1+n2+n3\n";
+    std::cout << "➜ B: multiplicazione:\tn1*n2\n";
+    std::cout << "➜ C: sottrazione:\tn3-n1\n";
+    std::cout << "➜ D: divisione:\t\t1/n2\n";
+    std::cout << "➜ X: uscita programma\n";
   };
 
   int addizione(int n1, int n2, int n3) {
@@ -54,14 +54,16 @@ int main() {
     };
 
     do {
+      std::cout<<std::endl;
       laa::printMenu();
+      std::cout<<"inserisci il commando scelto: ";
       std::cin >> choosedCommand;
     } while (!(laa::isGoodCommand(choosedCommand)));
 
     if (choosedCommand == "X") {
       std::cout << "grazie per aver utilizzato l'app. arrivederci!";
       return 0;
-    }
+    };
 
     if (choosedCommand == "A") {
       valueToDisplay = laa::addizione(intValues[0], intValues[1], intValues[2]);
