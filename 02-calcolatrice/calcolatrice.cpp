@@ -50,9 +50,9 @@ int main() {
     };
 
     if (choosedCommand == "A") { valueToDisplay = intValues[0] + intValues[1] + intValues[2]; }
-    if (choosedCommand == "B") { valueToDisplay = intValues[1] * intValues[2]; }
-    if (choosedCommand == "C") { valueToDisplay = intValues[3] - intValues[1]; }
-    if (choosedCommand == "D") { valueToDisplay = (double) intValues[1] / (double) intValues[2]; }
+    if (choosedCommand == "B") { valueToDisplay = intValues[0] * intValues[1]; }
+    if (choosedCommand == "C") { valueToDisplay = intValues[2] - intValues[0]; }
+    if (choosedCommand == "D") { valueToDisplay = (double) intValues[0] / (double) intValues[1]; }
 
     std::cout << "il valore calcolato è: " << valueToDisplay << std::endl << std::endl;
 
