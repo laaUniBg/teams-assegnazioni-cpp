@@ -8,15 +8,15 @@ const int ARRAY_SIZE = 50;
 
 namespace laa {
   void printMenu() {
-    std::cout << "menu:" << std::endl;
-    std::cout << "➜ 1. media" << std::endl;
-    std::cout << "➜ 2. massimo" << std::endl;
-    std::cout << "➜ 3. minimo" << std::endl;
-    std::cout << "➜ 4. rigenerare array" << std::endl;
-    std::cout << "➜ 5. valori vicino alla media" << std::endl;
-    std::cout << "➜ 6. calcolare la moda" << std::endl;
-    std::cout << "➜ 7. uscire dal programma" << std::endl << std::endl;
-    std::cout << "inserisci un numero fra 1 e 7: " << std::endl << std::endl;
+    std::cout << "menu:\n";
+    std::cout << "➜ 1. media\n";
+    std::cout << "➜ 2. massimo\n";
+    std::cout << "➜ 3. minimo\n";
+    std::cout << "➜ 4. rigenerare array\n";
+    std::cout << "➜ 5. valori vicino alla media\n";
+    std::cout << "➜ 6. calcolare la moda\n";
+    std::cout << "➜ 7. uscire dal programma\n\n";
+    std::cout << "inserisci un numero fra 1 e 7: \n\n";
   }
 
   bool isGoodCommand(std::string thisCommand) {
@@ -46,8 +46,7 @@ int main() {
     } while (!(laa::isGoodCommand(choosedCommand)));
 
     if (choosedCommand == "7") {
-      std::cout << "grazie per aver utlizzato il programma. arriverderci!" << std::endl
-                << std::endl;
+      std::cout << "grazie per aver utlizzato il programma. arriverderci!\n\n";
       return 0;
     }
 
@@ -56,6 +55,6 @@ int main() {
 
     };
 
-    std::cout << std::endl << std::endl << "-----------------------" << std::endl << std::endl;
+    std::cout << "\n\n-----------------------\n\n";
   } while (true);
 }
