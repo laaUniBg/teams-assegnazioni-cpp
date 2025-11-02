@@ -31,33 +31,48 @@ namespace laa {
 int main() {
   srand(time(0));
 
+  // do {
+  std::string choosedCommand;
+  int         thisGeneratedArray[ARRAY_SIZE];
+  double      media;
+  int         minimo;
+  int         massimo;
+  int         thisMaxRipetizioni          = 0;
+  int         numeroRipetizioniArray[100] = {0};
+
   do {
-    std::string choosedCommand;
-    int         thisGeneratedArray[ARRAY_SIZE];
-    double      media;
-    int         minimo;
-    int         massimo;
-    int         thisMaxRipetizioni = 0;
-    int         numeroRipetizioniArray[100][100];
+    laa::printMenu();
+    std::cin >> choosedCommand;
+  } while (!(laa::isGoodCommand(choosedCommand)));
 
-    do {
-      laa::printMenu();
-      std::cin >> choosedCommand;
-    } while (!(laa::isGoodCommand(choosedCommand)));
+  if (choosedCommand == "7") {
+    std::cout << "grazie per aver utlizzato il programma. arriverderci!\n\n";
+    return 0;
+  }
 
-    if (choosedCommand == "7") {
-      std::cout << "grazie per aver utlizzato il programma. arriverderci!\n\n";
-      return 0;
-    }
+  for (int i = 0; i < ARRAY_SIZE; i++) {
+    const int thisGeneratedNumber = (rand() % 100) + 1;
+    thisGeneratedArray[i]         = thisGeneratedNumber;
+    media                         = (media + thisGeneratedNumber) / (i != 0 ? 2 : 1);
 
-    for (int i = 0; i < ARRAY_SIZE; i++) {
-      const int thisGeneratedNumber = (rand() % 100) + 1;
-      thisGeneratedArray[i]         = thisGeneratedNumber;
-      media                         = (media + thisGeneratedNumber) / (i != 0 ? 2 : 1);
-      if (thisGeneratedNumber < minimo) { minimo = thisGeneratedNumber; };
-      if (thisGeneratedNumber > massimo) { massimo = thisGeneratedNumber; };
+    if (thisGeneratedNumber < minimo) { minimo = thisGeneratedNumber; };
+    if (thisGeneratedNumber > massimo) { massimo = thisGeneratedNumber; };
+
+    numeroRipetizioniArray[thisGeneratedNumber]++;
+
+    if (numeroRipetizioniArray[thisGeneratedNumber] > thisMaxRipetizioni) {
+      thisMaxRipetizioni = numeroRipetizioniArray[thisGeneratedNumber];
     };
+  };
 
-    std::cout << "\n\n-----------------------\n\n";
-  } while (true);
+  if (choosedCommand == "0") { std::cout << "la media è: " << media << "\n\n"; };
+  if (choosedCommand == "1") { std::cout << "il massimo è: " << massimo << "\n\n"; };
+  if (choosedCommand == "2") { std::cout << "il minimo è: " << minimo << "\n\n"; };
+  if (choosedCommand == "6") {
+    std::cout << "la moda è: " << numeroRipetizioniArray[thisMaxRipetizioni]
+              << " , infatti si trova " << thisMaxRipetizioni << " volte nell'array" << "\n\n";
+  }
+
+  std::cout << "\n\n-----------------------\n\n";
+  // } while (true);
 }
