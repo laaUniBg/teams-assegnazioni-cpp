@@ -1,7 +1,10 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>     
+#include <time.h>
 
 const std::string validCommands[7] = {"1", "2", "3", "4", "5", "6", "7"};
+const int ARRAY_SIZE = 50;
 
 namespace laa {
   void printMenu() {
@@ -26,19 +29,32 @@ namespace laa {
 }; // namespace laa
 
 int main() {
+  srand(time(0));
+
   do {
     std::string choosedCommand;
+    int thisGeneratedArray[ARRAY_SIZE];
+    double media;
+    int minimo;
+    int massimo;
+    int thisMaxRipetizioni = 0;
+    int numeroRipetizioniArray[100];
 
     do {
       laa::printMenu();
       std::cin >> choosedCommand;
     } while (!(laa::isGoodCommand(choosedCommand)));
-    
+
     if (choosedCommand == "7") {
       std::cout << "grazie per aver utlizzato il programma. arriverderci!" << std::endl
                 << std::endl;
       return 0;
     }
+
+    for(int i=1; i<=ARRAY_SIZE; i++) {
+      const int thisGeneratedNumber = (rand()%100)+1;
+
+    };
 
     std::cout << std::endl << std::endl << "-----------------------" << std::endl << std::endl;
   } while (true);
