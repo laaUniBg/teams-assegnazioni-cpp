@@ -50,7 +50,7 @@ int main() {
       return 0;
     }
 
-    for (int i = 1; i <= ARRAY_SIZE; i++) {
+    for (int i = 0; i < ARRAY_SIZE; i++) {
       const int thisGeneratedNumber = (rand() % 100) + 1;
       thisGeneratedArray[i]         = thisGeneratedNumber;
       media                         = (media + thisGeneratedNumber) / (i != 0 ? 2 : 1);
