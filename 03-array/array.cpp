@@ -1,10 +1,10 @@
 #include <iostream>
+#include <stdlib.h>
 #include <string>
-#include <stdlib.h>     
 #include <time.h>
 
 const std::string validCommands[7] = {"1", "2", "3", "4", "5", "6", "7"};
-const int ARRAY_SIZE = 50;
+const int         ARRAY_SIZE       = 50;
 
 namespace laa {
   void printMenu() {
@@ -33,12 +33,12 @@ int main() {
 
   do {
     std::string choosedCommand;
-    int thisGeneratedArray[ARRAY_SIZE];
-    double media;
-    int minimo;
-    int massimo;
-    int thisMaxRipetizioni = 0;
-    int numeroRipetizioniArray[100];
+    int         thisGeneratedArray[ARRAY_SIZE];
+    double      media;
+    int         minimo;
+    int         massimo;
+    int         thisMaxRipetizioni = 0;
+    int         numeroRipetizioniArray[100][100];
 
     do {
       laa::printMenu();
@@ -50,9 +50,12 @@ int main() {
       return 0;
     }
 
-    for(int i=1; i<=ARRAY_SIZE; i++) {
-      const int thisGeneratedNumber = (rand()%100)+1;
-
+    for (int i = 1; i <= ARRAY_SIZE; i++) {
+      const int thisGeneratedNumber = (rand() % 100) + 1;
+      thisGeneratedArray[i]         = thisGeneratedNumber;
+      media                         = (media + thisGeneratedNumber) / (i != 0 ? 2 : 1);
+      if (thisGeneratedNumber < minimo) { minimo = thisGeneratedNumber; };
+      if (thisGeneratedNumber > massimo) { massimo = thisGeneratedNumber; };
     };
 
     std::cout << "\n\n-----------------------\n\n";
